@@ -13,9 +13,15 @@ namespace eBuy.Controllers
         // GET: Home
         public ActionResult Index()
         {
+            var categories = DbUtils.GetCategories();
+            return View(categories);
+        }
+
+        // INTERACTIONS
+        public ActionResult showAllProducts()
+        {
             var products = DbUtils.GetAllProducts();
-            // TODO: send products to view and generate all
-            return View();
+            return PartialView("ProductList", products);
         }
 
         

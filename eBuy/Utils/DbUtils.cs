@@ -20,13 +20,22 @@ namespace eBuy.Utils
             return con;
         }
 
+        public static List<ProductType> GetCategories()
+        {
+            using (IDbConnection db = OpenConnection())
+            {
+                return db.Query<ProductType>
+                ("SELECT * FROM ProductType").ToList();
+            }
+        }
+
         // TODO: should i move this into a helper?
         public static List<Product> GetAllProducts()
         {
             using (IDbConnection db = OpenConnection())
             {
                 return db.Query<Product>
-                ("Select * From Product").ToList();
+                ("SELECT * FROM Product WHERE in_stock > 0").ToList();
             }
         }
     }

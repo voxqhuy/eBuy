@@ -1,0 +1,26 @@
+﻿@model List<eBuy.Models.Product>
+
+
+@foreach (var item in Model)
+{
+    <li class="list-group-item">
+        <div class="row" style="height:90px">
+            <div class="col-md-8">
+                <h6 class="my-0">
+                    @Html.DisplayFor(modelItem => item.product_name)
+                </h6>
+                <small class="text-muted">
+                    @Html.DisplayFor(modelItem => item.product_description)
+                </small>
+            </div>
+
+            <div class="text-muted col-md-2">
+                $@Html.DisplayFor(modelItem => item.price)
+            </div>
+            <div class="col-md-2" style="height:100%">
+                <button type="button" class="btn btn-block btn-primary" style="height:100%">Add to cart</button>
+            </div>
+        </div>
+
+    </li>
+}
