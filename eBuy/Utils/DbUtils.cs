@@ -28,14 +28,27 @@ namespace eBuy.Utils
                 ("SELECT * FROM ProductType").ToList();
             }
         }
-
-        // TODO: should i move this into a helper?
+        
         public static List<Product> GetAllProducts()
         {
             using (IDbConnection db = OpenConnection())
             {
                 return db.Query<Product>
                 ("SELECT * FROM Product WHERE in_stock > 0").ToList();
+            }
+        }
+
+        public static List<Product> SearchBy(string text, string categoryId)
+        {
+            var sqlStatement = "SELECT * FROM Product WHERE product_name LIKE '%" + text + "%'";
+            if (categoryId != "")
+            {
+                sqlStatement += "AND product_type_id=" + categoryId;
+            }
+            using (IDbConnection db = OpenConnection())
+            {
+                return db.Query<Product>
+                    (sqlStatement).ToList();
             }
         }
     }
