@@ -11,7 +11,7 @@ namespace eBuy.Models
         public int product_type_id { get; set; }
         public string product_name { get; set; }
         public string product_description { get; set; }
-        public string price { get; set; }
-        public int in_stock { get; set; }
+        public decimal price { get; set; }
+        //public int in_stock { get; set; }
     }
 }

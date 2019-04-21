@@ -34,7 +34,7 @@ namespace eBuy.Utils
             using (IDbConnection db = OpenConnection())
             {
                 return db.Query<Product>
-                ("SELECT * FROM Product WHERE in_stock > 0").ToList();
+                ("SELECT * FROM Product").ToList();
             }
         }
 

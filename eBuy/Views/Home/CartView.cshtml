@@ -1,0 +1,23 @@
+﻿@model eBuy.Models.CartViewModel
+
+
+@foreach (var item in Model.products)
+{
+    <li class="list-group-item">
+        <div>
+            <h6 class="my-0">
+                @Html.DisplayFor(modelItem => item.product_name)
+            </h6>
+        </div>
+        <span class="text-muted">
+            $@Html.DisplayFor(modelItem => item.price)
+        </span>
+    </li>
+}
+
+    <li class="list-group-item">
+        <span>Total (USD)</span>
+        <strong>
+            $@Html.DisplayFor(model => model.total)
+        </strong>
+    </li>

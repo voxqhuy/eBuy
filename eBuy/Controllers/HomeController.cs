@@ -33,6 +33,12 @@ namespace eBuy.Controllers
             return PartialView("ProductList", products);
         }
 
+        public ActionResult RefreshCart()
+        {
+            
+            return PartialView("CartView");
+        }
+
         // Helper methods
         private IEnumerable<SelectListItem> GetCategories()
         {
