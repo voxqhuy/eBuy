@@ -5,4 +5,5 @@ The SQL database is as follow:
 
 ![alt text](eBuyDatabase.png)
 
-TO BE UPDATED
+# Technologies
+ASP.NET, Bootstrap 4, Dapper, FontAwesome, Modernizr, jQuery.
